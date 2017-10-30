@@ -8,7 +8,10 @@
 <script>
 import TabBar from './components/TabBar/TabBar'
 export default {
-  name: 'app',
+  created () {
+    //获取数据
+    this.$store.dispatch('setBooks')
+  },
   components: {
     TabBar
   }
