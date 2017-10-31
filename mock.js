@@ -9,6 +9,7 @@ var data = Mock.mock({
         "book_editor": "@ctitle(1,5)",
         //类型
         "book_type": "@ctitle(2)",
+        //类型颜色
         "type_color": "@color",
         //漫画描述
         "book_detail": "@cparagraph(30,50)",
@@ -19,21 +20,28 @@ var data = Mock.mock({
         },
         //分类id
         "classify_id": "@natural(1,13)",
-        //赞
+        //点赞数
         "favorite": "@natural(1000, 100000)",
         //评论数
         "discuss": "@natural(1000, 100000)",
+        //关注数
+        "attention": "@natural(1, 1000)万",
         //很多集
         "each|30-60": [{
+            //每集的id
+            "each_id|+1": 1,
             //每集的标题
             "each_title": "@ctitle(4, 10)",
             //每集的图片
             "imgs": {
                 "small": "@image(300x150,@color,@ctitle(3)",
                 "big": "@image(500x300,@color,@ctitle(3)"
-            }
+            },
+            //每集的点赞数
+            "favorite": "@natural(1000, 100000)"
         }]
     }],
+    //分类
     "classifys|13": [{
         //分类id
         "classify_id|+1": 1,

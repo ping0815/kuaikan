@@ -139,7 +139,7 @@ export default {
   line-height: 65px;
   margin-left: 2.8rem;
   margin-right: 1.5rem;
-  border-bottom: 0.2px solid #eee;
+  border-bottom: 0.05rem solid #eee;
   position: relative;
 }
 .title{
