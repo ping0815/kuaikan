@@ -14,7 +14,7 @@
   left: 0;
   right: 0;
   width: 100%;
-  height: 5rem;
+  height: 3.5rem;
   z-index: 5;
   background-color: #fff;
   /* border-top: .1px solid #000; */
@@ -23,20 +23,21 @@
   float: left;
   width: 25%;
   text-align: center;
-  padding-top: 1rem;
+  padding-top: .5rem;
   text-decoration: none;
   color: #000;
+  font-size: .8rem;
 }
 .tabbar a span{
   display: block;
   width: 100%;
-  height: 2rem;
-  background-size: auto 2rem;
+  height: 1.5rem;
+  background-size: auto 1.5rem;
   background-position: center 0;
-  margin-bottom: .5rem;
+  margin-bottom: .4rem;
   background-repeat: no-repeat;
 }
-@keyframes navs{
+/* @keyframes navs{
   0%{
     background-size: auto .6rem;
   }
@@ -55,7 +56,7 @@
   100%{
     background-size: auto 2rem;
   }
-}
+} */
 .tabbar a.home span{
   background-image: url(./images/home.jpg);
 }
@@ -92,7 +93,7 @@
 .tabbar a.mine.router-link-exact-active{
   color: #ffba15;
 }
-.tabbar a.router-link-exact-active span{
+/* .tabbar a.router-link-exact-active span{
   animation: navs 1s;
-}
+} */
 </style>

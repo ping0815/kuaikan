@@ -1,3 +1,3 @@
 <template>
-  <h1>我的页</h1>
+  <div class="mine"></div>
 </template>

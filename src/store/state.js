@@ -1,3 +1,4 @@
 export default {
-    books: {}
+    books: {},
+    classify: []
 }

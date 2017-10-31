@@ -5,6 +5,13 @@ import App from './App'
 import router from './router'
 import store from './store'
 
+//引入mint-ui
+import { Swipe, SwipeItem } from 'mint-ui'
+import 'mint-ui/lib/style.css'
+
+Vue.component(Swipe.name, Swipe)
+Vue.component(SwipeItem.name, SwipeItem)
+
 //引入axios
 import axios from 'axios'
 Vue.prototype.$http = axios

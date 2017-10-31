@@ -11,6 +11,7 @@ export default {
   created () {
     //获取数据
     this.$store.dispatch('setBooks')
+    this.$store.dispatch('setClassify')
   },
   components: {
     TabBar
