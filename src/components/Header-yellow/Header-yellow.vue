@@ -3,7 +3,7 @@
       <span class="game"></span>
       <div class="select">
         <div class="guanzhu">关注</div>
-        <div class="remen" :class="{'active': selectBol}">热门</div>
+        <div class="remen" :class="{'active1': selectBol}">热门</div>
       </div>
       <span class="search"></span>
     </div>
@@ -65,7 +65,7 @@ export default {
 .remen{
   margin-left: .5rem;
 }
-.active{
+.active1{
   background: #fde23d;
   color: #000;
   border-radius: 20px;

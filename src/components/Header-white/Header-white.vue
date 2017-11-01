@@ -2,7 +2,7 @@
   <div class="header-white">
       <span class="sex"></span>
       <div class="selected">
-        <div class="tuijian" :class="{'active1': selectedBol}">推荐</div>
+        <div class="tuijian" :class="{'active2': selectedBol}">推荐</div>
         <div class="fenlei">分类</div>
       </div>
       <span class="search1"></span>
@@ -64,7 +64,7 @@ export default {
 .fenlei{
   margin-left: .5rem;
 }
-.active1{
+.active2{
   background: #fff;
   color: #fde23d;
   border-radius: 20px;

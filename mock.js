@@ -19,7 +19,9 @@ var data = Mock.mock({
             "big": "@image(500x300,@color,@ctitle(3)"
         },
         //分类id
-        "classify_id": "@natural(1,13)",
+        "classify_id": "@natural(0,13)",
+        //每天展示的主页
+        "time_id": "@natural(0,6)",
         //点赞数
         "favorite": "@natural(1000, 100000)",
         //评论数

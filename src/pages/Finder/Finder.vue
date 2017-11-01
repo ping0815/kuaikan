@@ -60,6 +60,7 @@
 
 <script>
 import HeaderWhite from '@/components/Header-white/Header-white'
+let arr = []
 export default {
   components: {
     HeaderWhite
@@ -70,6 +71,22 @@ export default {
     },
     classify () {
       return this.$store.state.classify
+    },
+    arr () {
+      for (let i = 0; i < this.classify.length; i++) {
+        let pushBol = true
+        for (let j = 0; j < this.books.length; j++) {
+          if (this.classify[i].classify_id === this.books[j].classify_id) {
+            pushBol = false
+            arr.push(this.books[j])
+          }
+        }
+        console.log(arr)
+        return arr
+      }
+      if (pushBol) {
+        return this.books
+      }
     }
   }
 }
@@ -138,7 +155,7 @@ export default {
 }
 .module{
   width: 100%;
-  height: 530px;
+  height: 455px;
   margin-top: 15px;
 }
 .module-header{
@@ -166,10 +183,13 @@ export default {
 }
 .module-content li h3{
   font-weight: 400;
+  width: 100%;
+  overflow : hidden;
+  white-space : nowrap;
+  text-overflow :ellipsis;
 }
 .module-content li img{
   width: 120px;
   height: 150px;
 }
 </style>
-
