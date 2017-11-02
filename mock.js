@@ -1,7 +1,7 @@
 var Mock = require('mockjs')
 var fs = require('fs')
 var data = Mock.mock({
-    "books|20-50": [{
+    "books|30-80": [{
         "book_id|+1": 1,
         //漫画名称
         "book_name": "@ctitle(4,10)",
@@ -12,7 +12,7 @@ var data = Mock.mock({
         //类型颜色
         "type_color": "@color",
         //漫画描述
-        "book_detail": "@cparagraph(30,50)",
+        "book_detail": "@cparagraph(5,10)",
         //图片
         "imgs": {
             "small": "@image(200x300,@color,@ctitle(3)",
@@ -28,6 +28,8 @@ var data = Mock.mock({
         "discuss": "@natural(1000, 100000)",
         //关注数
         "attention": "@natural(1, 1000)万",
+        //总热度
+        "hot": "@float(1,20,0,2)亿",
         //很多集
         "each|30-60": [{
             //每集的id
@@ -40,7 +42,22 @@ var data = Mock.mock({
                 "big": "@image(500x300,@color,@ctitle(3)"
             },
             //每集的点赞数
-            "favorite": "@natural(1000, 100000)"
+            "favorite": "@natural(1000, 100000)",
+            //每集的日期
+            "each_date": "@date()"
+        }],
+        //精彩点评
+        "particulars_discuss|3-6": [{
+            //点评人头像
+            "people_header": "@image(50x50,@color,@ctitle(1)",
+            //点评人昵称
+            "people_name": "@ctitle(4, 6)",
+            //评论日期
+            "discuss_data": "@date()",
+            //评论词
+            "discuss_content": "@cparagraph(5,10)",
+            //评论点赞数
+            "discuss_favorite": "@natural(500, 20000)"
         }]
     }],
     //分类

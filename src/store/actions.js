@@ -14,5 +14,8 @@ export default {
           .then(res => {
               commit('SET_CLASSIFY', res.data)
           })
+    },
+    showAll ({commit}, obj) {
+        commit('SHOW_ALL', obj)
     }
 }

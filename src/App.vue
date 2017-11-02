@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <tab-bar></tab-bar>
+    <tab-bar v-show="tabBarShow"></tab-bar>
     <router-view/>
   </div>
 </template>
@@ -15,9 +15,18 @@ export default {
   },
   components: {
     TabBar
+  },
+  computed: {
+    tabBarShow () {
+      return this.$store.state.tabBarShow
+    }
   }
 }
 </script>
 
 <style>
+img[lazy=loading]{
+  background: url(./pages/loading/loading.gif);
+  background-size: 100% 100%;
+}
 </style>

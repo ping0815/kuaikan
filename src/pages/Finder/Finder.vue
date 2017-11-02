@@ -46,8 +46,8 @@
         </div>
         <div class="module-content">
           <ul>
-            <li v-for="(item, index) in books" :key="index" v-if="index < 6">
-              <img :src=item.imgs.small alt="">
+            <li v-for="(item, index) in books" :key="index" v-if="index < 6" @click="showAll(item)">
+              <img v-lazy=item.imgs.small alt="">
               <h3>{{item.book_name}}</h3>
               <p>{{item.book_type}}</p>
             </li>
@@ -60,10 +60,12 @@
 
 <script>
 import HeaderWhite from '@/components/Header-white/Header-white'
+import DetailPage from '@/pages/Detail-page/Detail-page'
 let arr = []
 export default {
   components: {
-    HeaderWhite
+    HeaderWhite,
+    DetailPage
   },
   computed: {
     books () {
@@ -87,6 +89,12 @@ export default {
       if (pushBol) {
         return this.books
       }
+    }
+  },
+  methods: {
+    showAll (item) {
+      this.$store.dispatch('showAll', item)
+      this.$router.push('/detail-page')
     }
   }
 }

@@ -15,10 +15,10 @@
           <div class="each-header">
             <span class="type" v-bind:style="{backgroundColor: item.type_color}">{{item.book_type}}</span>
             <h2 class="name">{{item.book_name}}</h2>
-            <span class="all"><router-link to="/detail-page">全集></router-link></span>
+            <span class="all" @click="showAll(item)"><router-link to="/detail-page">全集></router-link></span>
             <p>作者：{{item.book_editor}}</p>
           </div>
-          <img :src=item.each[item.each.length-1].imgs.small alt="">
+          <img v-lazy="item.each[item.each.length-1].imgs.small" alt="">
           <div class="img-bottom">
             <h3>{{item.each[item.each.length-1].each_title}}</h3>
             <span class="favorite"><span></span>{{item.favorite}}</span>
@@ -126,6 +126,9 @@ export default {
   methods: {
     changeActiveIndex (id) {
       this.activeNow = id
+    },
+    showAll (item) {
+      this.$store.dispatch('showAll', item)
     }
   }
 }
