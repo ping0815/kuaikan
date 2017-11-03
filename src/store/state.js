@@ -6,5 +6,7 @@ export default {
     //存储点击的对象
     completeWorks: {},
     //tabBar是否显示
-    tabBarShow: true
+    tabBarShow: true,
+    //更多页存储的数据
+    moreData: []
 }

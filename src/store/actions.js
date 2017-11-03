@@ -17,5 +17,8 @@ export default {
     },
     showAll ({commit}, obj) {
         commit('SHOW_ALL', obj)
+    },
+    showMore ({commit}, obj) {
+        commit('SHOW_MORE', obj)
     }
 }

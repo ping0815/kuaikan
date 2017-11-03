@@ -42,14 +42,14 @@
       <div class="module" v-for="(item, index) in classify" :key="index">
         <div class="module-header">
           <h3>{{item.classify_title}}</h3>
-          <span>更多 ></span>
+          <span @click="showMore(item.classify_id)">更多 ></span>
         </div>
         <div class="module-content">
           <ul>
-            <li v-for="(item, index) in books" :key="index" v-if="index < 6" @click="showAll(item)">
-              <img v-lazy=item.imgs.small alt="">
-              <h3>{{item.book_name}}</h3>
-              <p>{{item.book_type}}</p>
+            <li v-for="(pro, ind) in arr.splice(ind*6, 6)" :key="ind" @click="showAll(pro)">
+              <img v-lazy="pro.imgs.small" alt="">
+              <h3>{{pro.book_name}}</h3>
+              <p>{{pro.book_type}}</p>
             </li>
           </ul>
         </div>
@@ -61,11 +61,12 @@
 <script>
 import HeaderWhite from '@/components/Header-white/Header-white'
 import DetailPage from '@/pages/Detail-page/Detail-page'
-let arr = []
+import More from '@/pages/More/More'
 export default {
   components: {
     HeaderWhite,
-    DetailPage
+    DetailPage,
+    More
   },
   computed: {
     books () {
@@ -74,27 +75,33 @@ export default {
     classify () {
       return this.$store.state.classify
     },
+    //根据分类筛选数据
     arr () {
+      let arr = []
       for (let i = 0; i < this.classify.length; i++) {
-        let pushBol = true
+        let k = 0
         for (let j = 0; j < this.books.length; j++) {
           if (this.classify[i].classify_id === this.books[j].classify_id) {
-            pushBol = false
+            k++
             arr.push(this.books[j])
+            if (k === 6) {
+              break
+            }
           }
         }
-        console.log(arr)
-        return arr
       }
-      if (pushBol) {
-        return this.books
-      }
+      console.log(arr)
+      return arr
     }
   },
   methods: {
     showAll (item) {
       this.$store.dispatch('showAll', item)
       this.$router.push('/detail-page')
+    },
+    showMore (item) {
+      this.$store.dispatch('showMore', item)
+      this.$router.push('/more')
     }
   }
 }
@@ -180,6 +187,7 @@ export default {
   right: 5px;
   top: 3px;
   color: #aaa;
+  /* text-decoration: none; */
 }
 .module-content{
   padding-left: 5px;

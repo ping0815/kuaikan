@@ -7,5 +7,12 @@ export default {
     },
     SHOW_ALL (state, obj) {
         state.completeWorks = obj
+    },
+    SHOW_MORE (state, obj) {
+        for (let i = 0; i < state.books.length; i++) {
+            if (state.books[i].classify_id === obj) {
+                state.moreData.push(state.books[i])
+            }
+        }
     }
 }

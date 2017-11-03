@@ -81,6 +81,27 @@
 </template>
 
 <script>
+function orderBy (arr, type, bol) {
+  if (bol === undefined) {
+    bol = true
+  }
+  function sortNumber (a, b) {
+    if (bol) {
+      if (type) {
+        return Date.parse(a[type]) - Date.parse(b[type])
+      } else {
+        return a - b
+      }
+    } else {
+      if (type) {
+        return Date.parse(b[type]) - Date.parse(a[type])
+      } else {
+        return b - a
+      }
+    }
+  }
+  return arr.sort(sortNumber)
+}
 export default {
   data () {
     return {
@@ -92,6 +113,11 @@ export default {
   },
   computed: {
     completeWorks () {
+      if (this.sortNoBol) {
+        orderBy(this.$store.state.completeWorks.each, 'each_date', false)
+      } else {
+        orderBy(this.$store.state.completeWorks.each, 'each_date', true)
+      }
       return this.$store.state.completeWorks
     }
   },

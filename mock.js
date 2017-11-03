@@ -1,7 +1,7 @@
 var Mock = require('mockjs')
 var fs = require('fs')
 var data = Mock.mock({
-    "books|30-80": [{
+    "books|100-150": [{
         "book_id|+1": 1,
         //漫画名称
         "book_name": "@ctitle(4,10)",
@@ -19,7 +19,7 @@ var data = Mock.mock({
             "big": "@image(500x300,@color,@ctitle(3)"
         },
         //分类id
-        "classify_id": "@natural(0,13)",
+        "classify_id|0-13": 100,
         //每天展示的主页
         "time_id": "@natural(0,6)",
         //点赞数
