@@ -6,6 +6,7 @@ import Community from '@/pages/Community/Community'
 import Mine from '@/pages/Mine/Mine'
 import DetailPage from '@/pages/Detail-page/Detail-page'
 import More from '@/pages/More/More'
+import Login from '@/pages/Login/Login'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/more',
       name: 'more',
       component: More
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
     }
   ]
 })

@@ -2,8 +2,8 @@
   <div class="header-white">
       <span class="sex"></span>
       <div class="selected">
-        <div class="tuijian" :class="{'active2': selectedBol}">推荐</div>
-        <div class="fenlei">分类</div>
+        <div class="tuijian" :class="{'active2': selectedBol}" @click="changeSelectedBol()">推荐</div>
+        <div class="fenlei" :class="{'active2': selectedFenBol}" @click="changeSelectedFenBol()">分类</div>
       </div>
       <span class="search1"></span>
     </div>
@@ -13,7 +13,18 @@
 export default {
   data () {
     return {
-      selectedBol: true
+      selectedBol: true,
+      selectedFenBol: false
+    }
+  },
+  methods: {
+    changeSelectedBol () {
+      this.selectedBol = true
+      this.selectedFenBol = false
+    },
+    changeSelectedFenBol () {
+      this.selectedBol = false
+      this.selectedFenBol = true
     }
   }
 }

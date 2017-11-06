@@ -2,7 +2,7 @@
   <div class="mine">
     <div class="mine-bg"></div>
     <div class="mine-main">
-      <div class="login">
+      <div class="login" @click="login()">
         <div class="login-header"></div>
         <p class="login-txt">登录</p>
       </div>
@@ -79,7 +79,11 @@
 
 <script>
 export default {
-
+  methods: {
+    login () {
+      this.$router.push('./login')
+    }
+  }
 }
 </script>
 
