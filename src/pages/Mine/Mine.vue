@@ -4,7 +4,7 @@
     <div class="mine-main">
       <div class="login" @click="login()">
         <div class="login-header"></div>
-        <p class="login-txt">登录</p>
+        <p class="login-txt">{{userInfo.name}}</p>
       </div>
       <div class="list-all">
         <div class="list">
@@ -81,8 +81,18 @@
 export default {
   methods: {
     login () {
-      this.$router.push('./login')
+      if (this.$store.state.userInfo.name !== '登录') {
+        this.$router.push('./')
+      } else {
+        this.$router.push('./login')
+      }
     }
+  },
+  computed:{
+    userInfo () {
+          console.log(this.$store.state.userInfo)
+          return this.$store.state.userInfo
+      }
   }
 }
 </script>

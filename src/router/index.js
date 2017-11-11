@@ -7,6 +7,9 @@ import Mine from '@/pages/Mine/Mine'
 import DetailPage from '@/pages/Detail-page/Detail-page'
 import More from '@/pages/More/More'
 import Login from '@/pages/Login/Login'
+import Zhuce from '@/pages/Zhuce/Zhuce'
+import Yzm from '@/pages/Yzm/Yzm'
+import Tijiao from '@/pages/Tijiao/Tijiao'
 
 Vue.use(Router)
 
@@ -46,6 +49,21 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/zhuce',
+      name: 'zhuce',
+      component: Zhuce
+    },
+    {
+      path: '/yzm',
+      name: 'yzm',
+      component: Yzm
+    },
+    {
+      path: '/tijiao',
+      name: 'tijiao',
+      component: Tijiao
     }
   ]
 })

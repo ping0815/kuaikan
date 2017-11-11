@@ -8,5 +8,13 @@ export default {
     //tabBar是否显示
     tabBarShow: true,
     //更多页存储的数据
-    moreData: []
+    moreData: [],
+    phone: '',
+    name: '',
+    showBol: false,
+    phoneErrBol: false,
+    //存储用户信息
+    userInfo: {
+        name: '登录'
+    }
 }

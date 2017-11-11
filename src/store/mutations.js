@@ -14,5 +14,19 @@ export default {
                 state.moreData.push(state.books[i])
             }
         }
+    },
+    GET_PHONE (state, phone) {
+        state.phone = phone
+    },
+    GET_NAME (state, name) {
+        state.name = name
+    },
+    TIJIAO (state, obj) {
+        console.log(obj)
+        state.userInfo = obj
+        console.log(state.userInfo)
+    },
+    LOGIN (state, data) {
+        state.userInfo = data
     }
 }

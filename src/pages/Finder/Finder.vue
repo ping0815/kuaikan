@@ -46,10 +46,10 @@
         </div>
         <div class="module-content">
           <ul>
-            <li v-for="(pro, ind) in arr.splice(ind*6, 6)" :key="ind" @click="showAll(pro)">
-              <img v-lazy="pro.imgs.small" alt="">
-              <h3>{{pro.book_name}}</h3>
-              <p>{{pro.book_type}}</p>
+            <li v-for="(item, index) in arr.splice(index*6, 6)" :key="index" @click="showAll(item)">
+              <img v-lazy="item.imgs.small" alt="">
+              <h3>{{item.book_name}}</h3>
+              <p>{{item.book_type}}</p>
             </li>
           </ul>
         </div>
@@ -90,7 +90,7 @@ export default {
           }
         }
       }
-      console.log(arr)
+      // console.log(arr)
       return arr
     }
   },
