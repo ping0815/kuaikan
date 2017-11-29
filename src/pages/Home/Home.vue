@@ -87,7 +87,7 @@ function computationTime () {
 export default {
   data () {
     return {
-      activeNow: 1
+      activeNow: 0
     }
   },
   computed: {
@@ -158,8 +158,8 @@ export default {
   height: 3rem;
   background: #fff;
   line-height: 3rem;
-  /* overflow-x: scroll;
-  overflow-y: hidden; */
+  overflow-x: scroll;
+  overflow-y: hidden;
   text-align: center;
 }
 .nav-day ul{

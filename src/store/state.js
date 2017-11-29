@@ -16,5 +16,8 @@ export default {
     //存储用户信息
     userInfo: {
         name: '登录'
-    }
+    },
+    //展示推荐页或者分类页
+    selectedBol: true,
+    selectedFenBol: false
 }

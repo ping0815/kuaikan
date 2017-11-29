@@ -3,55 +3,70 @@
     <div class="finder-header">
       <header-white></header-white>
     </div>
-    <div class="lunbotu">
-      <mt-swipe :auto="4000">
-        <mt-swipe-item>
-          <img src="http://dummyimage.com/400x250/f279b2&text=使每老本非" alt="">
-        </mt-swipe-item>
-        <mt-swipe-item>
-          <img src="http://dummyimage.com/400x250/f2ea79&text=看做就化每类" alt="">
-        </mt-swipe-item>
-        <mt-swipe-item>
-          <img src="http://dummyimage.com/400x250/7994f2&text=离如青查无处" alt="">
-        </mt-swipe-item>
-      </mt-swipe>
-    </div>
-    <div class="lunbotu-style"></div>
-    <div class="finder-main">
-      <div class="little-nav">
-        <ul>
-          <li>
-            <span class="ranking"></span>
-            <b>排行榜</b>
-          </li>
-          <li>
-            <span class="new"></span>
-            <b>新作榜</b>
-          </li>
-          <li>
-            <span class="ending"></span>
-            <b>完结榜</b>
-          </li>
-          <li>
-            <span class="classify"></span>
-            <b>分类</b>
-          </li>
-        </ul>
+    <div v-show="selectedBol">
+      <div class="lunbotu">
+        <mt-swipe :auto="4000">
+          <mt-swipe-item>
+            <img src="http://dummyimage.com/400x250/f279b2&text=使每老本非" alt="">
+          </mt-swipe-item>
+          <mt-swipe-item>
+            <img src="http://dummyimage.com/400x250/f2ea79&text=看做就化每类" alt="">
+          </mt-swipe-item>
+          <mt-swipe-item>
+            <img src="http://dummyimage.com/400x250/7994f2&text=离如青查无处" alt="">
+          </mt-swipe-item>
+        </mt-swipe>
       </div>
-      <!-- 每个模块分类 -->
-      <div class="module" v-for="(item, index) in classify" :key="index">
-        <div class="module-header">
-          <h3>{{item.classify_title}}</h3>
-          <span @click="showMore(item.classify_id)">更多 ></span>
-        </div>
-        <div class="module-content">
+      <div class="lunbotu-style"></div>
+      <div class="finder-main">
+        <div class="little-nav">
           <ul>
-            <li v-for="(item, index) in arr.splice(index*6, 6)" :key="index" @click="showAll(item)">
-              <img v-lazy="item.imgs.small" alt="">
-              <h3>{{item.book_name}}</h3>
-              <p>{{item.book_type}}</p>
+            <li>
+              <span class="ranking"></span>
+              <b>排行榜</b>
+            </li>
+            <li>
+              <span class="new"></span>
+              <b>新作榜</b>
+            </li>
+            <li>
+              <span class="ending"></span>
+              <b>完结榜</b>
+            </li>
+            <li @click="goClassify()">
+              <span class="classify"></span>
+              <b>分类</b>
             </li>
           </ul>
+        </div>
+        <!-- 每个模块分类 -->
+        <div class="module" v-for="(item, index) in classify" :key="index">
+          <div class="module-header">
+            <h3>{{item.classify_title}}</h3>
+            <span @click="showMore(item.classify_id)">更多 ></span>
+          </div>
+          <div class="module-content">
+            <ul>
+              <li v-for="(item, index) in arr.splice(index*6, 6)" :key="index" @click="showAll(item)">
+                <img v-lazy="item.imgs.small" alt="">
+                <h3>{{item.book_name}}</h3>
+                <p>{{item.book_type}}</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div v-show="!selectedBol">
+      <div class="selected-content">
+        <div class="selected-content-lists">
+          <ul>
+            <li>全部</li>
+            <li v-for="(item, index) in classify" :key="item.id">{{item.classify_title}}</li>
+          </ul>
+        </div>
+        <div class="selected-content-li">
+
         </div>
       </div>
     </div>
@@ -92,6 +107,9 @@ export default {
       }
       // console.log(arr)
       return arr
+    },
+    selectedBol () {
+      return this.$store.state.selectedBol
     }
   },
   methods: {
@@ -102,6 +120,10 @@ export default {
     showMore (item) {
       this.$store.dispatch('showMore', item)
       this.$router.push('/more')
+    },
+    goClassify () {
+      this.$store.state.selectedBol = false
+      this.$store.state.selectedFenBol = true
     }
   }
 }
@@ -121,6 +143,7 @@ export default {
   right: 0;
   z-index: 10;
 }
+/* 推荐页 */
 .lunbotu{
   width: 100%;
   height: 250px;
@@ -207,5 +230,28 @@ export default {
 .module-content li img{
   width: 120px;
   height: 150px;
+}
+/* 分类页 */
+.selected-content{
+  width: 100%;
+  height: 600px;
+  margin-top: 4rem;
+}
+.selected-content-lists{
+  width: 100%;
+  height: 5rem;
+}
+.selected-content-lists li{
+  list-style: none;
+  float: left;
+  width: 14%;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  text-align: center;
+}
+.selected-content-li{
+  width: 100%;
+  height: 600px;
+  background-color:pink;
 }
 </style>

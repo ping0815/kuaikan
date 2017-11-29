@@ -11,20 +11,28 @@
 
 <script>
 export default {
-  data () {
-    return {
-      selectedBol: true,
-      selectedFenBol: false
+  // data () {
+  //   return {
+  //     selectedBol: true,
+  //     selectedFenBol: false
+  //   }
+  // },
+  computed: {
+    selectedBol () {
+      return this.$store.state.selectedBol
+    },
+    selectedFenBol () {
+      return this.$store.state.selectedFenBol
     }
   },
   methods: {
     changeSelectedBol () {
-      this.selectedBol = true
-      this.selectedFenBol = false
+      this.$store.state.selectedBol = true
+      this.$store.state.selectedFenBol = false
     },
     changeSelectedFenBol () {
-      this.selectedBol = false
-      this.selectedFenBol = true
+      this.$store.state.selectedBol = false
+      this.$store.state.selectedFenBol = true
     }
   }
 }

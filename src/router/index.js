@@ -10,6 +10,7 @@ import Login from '@/pages/Login/Login'
 import Zhuce from '@/pages/Zhuce/Zhuce'
 import Yzm from '@/pages/Yzm/Yzm'
 import Tijiao from '@/pages/Tijiao/Tijiao'
+import Classify from '@/pages/Classify/Classify'
 
 Vue.use(Router)
 
@@ -64,6 +65,11 @@ export default new Router({
       path: '/tijiao',
       name: 'tijiao',
       component: Tijiao
+    },
+    {
+      path: '/classify',
+      name: 'classify',
+      component: Classify
     }
   ]
 })

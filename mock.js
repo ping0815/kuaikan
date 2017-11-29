@@ -65,7 +65,7 @@ var data = Mock.mock({
         //分类id
         "classify_id|+1": 1,
         //分类名称
-        "classify_title": "@ctitle(3,4)"
+        "classify_title": "@ctitle(2)"
     }]
 })
 //写入到db.json
